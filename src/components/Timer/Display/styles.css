@@ -10,6 +10,9 @@
 
 .display p {
   font-size: 3rem;
+  color: var(--body);
+}
+.display .active p {
   color: var(--primary-color);
 }
 
