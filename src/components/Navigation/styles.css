@@ -1,0 +1,36 @@
+.navigation {
+  height: 70px;
+  width: 100%;
+  background: var(--foreground);
+  max-width: 500px;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px -5px 20px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navigation li {
+  list-style: none;
+}
+.navigation a {
+  color: var(--color);
+  width: max-content;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.active {
+  color: var(--primary-color) !important
+}
+.active svg {
+  fill: var(--primary-color) !important
+}
+.navigation svg {
+  fill: var(--color);
+  width: 20px;
+  height: 20px;
+}
