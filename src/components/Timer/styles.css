@@ -31,7 +31,6 @@
   opacity: 1 !important;
 } 
 
-
 .set-timer .numbers button {
   display: inline-block;
   flex-basis: 33.3%;
@@ -42,4 +41,18 @@
 
 .set-timer .numbers button:last-child {
   flex-basis: 100%;
+}
+
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.5);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+  }
 }
