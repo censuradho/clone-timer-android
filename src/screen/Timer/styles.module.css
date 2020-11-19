@@ -1,0 +1,116 @@
+.timer {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  position: relative;
+}
+.timer section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.timer section button {
+  color: var(--color)
+}
+.timer .numbers {
+  display: flex;
+  flex-wrap: wrap;
+}
+ 
+.timer .play {
+  color: #fff;
+  background: var(--primary-color);
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.timer .numbers button {
+  display: inline-block;
+  flex-basis: 33.3%;
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--color)
+}
+
+.timer .numbers button:last-child {
+  flex-basis: 100%;
+}
+
+.play {
+  position: relative;
+  color: #fff;
+  background: var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  animation: scaleOut both .3s;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(.5);
+    opacity: 0;
+  }
+} 
+
+
+.is-active {
+  animation: scaleIn both .3s !important;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.visible {
+  animation: visible forwards .3s;
+}
+
+@keyframes visible {
+  from {
+    transform: translateY(-100px);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.hidden {
+  animation: hidden forwards .3s;
+}
+
+
+@keyframes hidden {
+  from {
+    transform: translateY(0px);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-100px);
+    visibility: hidden;
+    opacity: 0;
+  }
+}
