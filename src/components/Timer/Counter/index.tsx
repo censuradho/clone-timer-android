@@ -9,7 +9,10 @@ interface CounterProps {
 function Counter (props: CounterProps) {
   return (
     <div className={`${styles.counter} ${props.visible ? styles.visible : styles.hidden}`}>
-      Counter
+      <div className={styles.circle}>
+        <span>Marcador</span>
+        <strong>50</strong>
+      </div>
     </div>
   )
 }
