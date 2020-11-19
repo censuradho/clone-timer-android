@@ -1,5 +1,5 @@
 import { Console } from 'console'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import SetTimer from '../../components/Timer'
 import Counter from '../../components/Timer/Counter'
@@ -13,10 +13,16 @@ function Timer () {
 
   console.log(state, pause)
 
-  const handlePlay = () => {
+  const handlePlay = useCallback(() => {
     setPause(false)
     setState(1)
-  }
+  }, [])
+
+  const handleRemoveTimer = useCallback(() => {
+    setTime('')
+    setState(0)
+    setPause(false)
+  }, [])
 
   return (
     <main className={styles.timer}>
@@ -28,7 +34,7 @@ function Timer () {
       <Counter 
         visible={state === 1}
       />
-
+      <div className={styles['button-field']}>
         <button 
           className={`${styles.play} ${state === 0 && time.length > 0 ? styles['is-active'] : styles.inactive} ${pause ? styles['is-active'] : styles.inactive}`}
           onClick={handlePlay}
@@ -36,15 +42,20 @@ function Timer () {
           <svg height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
         </button>
 
-        <button>Excluir</button>
+        <button 
+          onClick={handleRemoveTimer}
+          className={`${state === 1 ? styles['is-active'] : styles.inactive}`}
+        >Excluir</button>
         <button
-          className={`${styles.play} ${pause ? styles.inactive : ''}`}
+          className={`${styles.play} ${state === 1 ? styles['is-active'] : styles.inactive} ${pause ? styles.inactive : ''}`}
           onClick={() => setPause(true)}
         >
           <svg height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
         </button>
-        <button>Adicionar timer</button>
-      
+        <button 
+          className={`${state === 1 ? styles['is-active'] : styles.inactive}`}
+        >Adicionar timer</button>
+      </div>      
     </main>
   )
 }
