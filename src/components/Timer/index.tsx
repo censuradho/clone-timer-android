@@ -1,8 +1,5 @@
 import React, { useMemo, useState, useCallback, useEffect } from 'react'
 
-import Counter from './Counter'
-
-
 import styles from './styles.module.css'
 
 interface SetTimerProps {
@@ -17,7 +14,7 @@ function SetTimer (props: SetTimerProps) {
   const values = useMemo(() => [1, 2, 3, 4, 5, 6, 7, 8, 9, 0], [])
 
     const handleMilliseconds = useCallback((value: number) => {
-      if (milliseconds.length > 6) return;
+      if (milliseconds.length > 5) return;
 
       setMilliseconds(prev => prev + value)
   }, [milliseconds])
@@ -47,7 +44,7 @@ function SetTimer (props: SetTimerProps) {
       value={value}
       onClick={() => handleMilliseconds(value)}  
     >{value}</button>
-  ), [values])
+  ), [values, handleMilliseconds])
 
   return (
     <div className={`${styles['set-timer']} ${props?.visible ? 'visible' : 'hidden'}`}>

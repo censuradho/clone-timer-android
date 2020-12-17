@@ -1,4 +1,3 @@
-import { Console } from 'console'
 import React, { useCallback, useState } from 'react'
 
 import SetTimer from '../../components/Timer'
@@ -33,6 +32,7 @@ function Timer () {
       />
       <Counter 
         visible={state === 1}
+        time={time}
       />
       <div className={styles['button-field']}>
         <button 

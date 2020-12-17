@@ -27,7 +27,8 @@
   flex-basis: 33.3%;
   font-size: 2rem;
   padding: 1rem;
-  color: var(--color)
+  color: var(--color);
+  outline: none;
 }
 
 .numbers button:last-child {
